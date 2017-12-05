@@ -4,5 +4,23 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.clearfix::before,
+.clearfix::after {
+  display: table;
+  content: " ";
+}
+.clearfix::after {
+  clear: both;
+}
+
+.form-group {
+  float: left;
+  margin-right: 20px;
+}
+
+.form-group:first-child {
+  margin-left: 20px;
 }
