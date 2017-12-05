@@ -1,4 +1,5 @@
 "use strict";
+const { Profile } = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -77,7 +78,7 @@ module.exports = {
         education: education[Math.floor(Math.random() * education.length)]
       });
     }
-    return queryInterface.bulkInsert("Profile", users);
+    return queryInterface.bulkInsert("Profiles", users);
   },
 
   down: (queryInterface, Sequelize) => {

@@ -1,22 +1,22 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define(
-    "User",
+    'User',
     {
       name: DataTypes.STRING,
       username: DataTypes.STRING,
       email: DataTypes.STRING,
-      password: DataTypes.STRING
+      password: DataTypes.STRING,
     },
     {
-      classMethods: {}
-    }
+      classMethods: {},
+    },
   );
 
   User.associate = function(models) {
     // associations can be defined here
     User.hasOne(models.Profile, {
-      foreignKey: "userId"
+      foreignKey: 'userId',
     });
   };
 

@@ -1,4 +1,5 @@
 'use strict';
+const { User } = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -40,7 +41,7 @@ module.exports = {
         name: `${godNames[i]}`,
         username: `${godNames[i]}`,
         email: `${godNames[i]}@gmail.com`,
-        password: Math.random() * (9999-1000) + 1000;
+        password: Math.random() * (9999-1000) + 1000
       });
     }
     return queryInterface.bulkInsert('Users', users);
