@@ -1,25 +1,39 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 let models = require("./../models");
 let User = models.User;
+let Profile = models.Profile;
 let sequelize = models.sequelize;
 
-const models = 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get("/", function(req, res, next) {
   User.findAll({
-    include: [{model: Profile}]
-  }).then(profiles => {
-    users = profiles.map((profile) => {
-      return {
-        name: profile.dataValues.name,
-        email: profile.dataValues.email,
-        education: profile.dataValues.education
-      }
-    })
-    res.render('users', {users});
+    include: [{ model: Profile }]
   })
-  .catch(e => res.status(500).send(e.stack));
+    .then(users => {
+      res.render("users", { users });
+    })
+    .catch(e => res.status(500).send(e.stack));
+});
+
+router.post("/", (req, res, next) => {
+  User.findAll({
+    include: [
+      {
+        model: Profile,
+        where: {
+          education: req.body.education
+          // gender: req.body.gender,
+          // occupation: req.body.occupation
+        }
+      }
+    ]
+  })
+    .then(users => {
+      console.log(users);
+      res.render("users", { users });
+    })
+    .catch(e => res.status(500).send(e.stack));
 });
 
 module.exports = router;

@@ -1,0 +1,24 @@
+
+{{>basics}}
+
+<br />
+
+  <div class='clearfix'>
+     {{#each users as |user|}}
+        <div class='blurb' id="{{user.name}}">
+          <p>
+            {{user.name}}
+          </p><br />
+          <p>
+            {{user.Profile.age}} years old
+          </p><br />
+          <p>
+            {{user.Profile.education}}
+          </p><br />
+          <p>
+            {{user.Profile.occupation}}
+          </p><br />
+
+        </div>
+     {{/each}}
+  </div>

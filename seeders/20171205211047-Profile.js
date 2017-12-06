@@ -1,5 +1,5 @@
 "use strict";
-const { Profile } = require('../models');
+const { Profile } = require("../models");
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -75,7 +75,8 @@ module.exports = {
         distance:
           Math.random() * (distLimits.max - distLimits.min) + distLimits.min,
         occupation: occupations[Math.floor(Math.random() * occupations.length)],
-        education: education[Math.floor(Math.random() * education.length)]
+        education: education[Math.floor(Math.random() * education.length)],
+        userId: i + 1
       });
     }
     return queryInterface.bulkInsert("Profiles", users);

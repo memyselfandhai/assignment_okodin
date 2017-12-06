@@ -1,5 +1,5 @@
-'use strict';
-const { User } = require('../models');
+"use strict";
+const { User } = require("../models");
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -15,24 +15,24 @@ module.exports = {
     */
 
     let godNames = [
-      'The Aesir',
-      'Balder',
-      'Frigg',
-      'Thor',
-      'Tyri',
-      'Freya',
-      'hoenir',
-      'Loourr',
-      'Loki',
-      'Mani',
-      'Mimir',
-      'Meili',
-      'Mjoror',
-      'Mor',
-      'Saxnot',
-      'Tyr',
-      'Ullr',
-      'Vali',
+      "The Aesir",
+      "Balder",
+      "Frigg",
+      "Thor",
+      "Tyri",
+      "Freya",
+      "hoenir",
+      "Loourr",
+      "Loki",
+      "Mani",
+      "Mimir",
+      "Meili",
+      "Mjoror",
+      "Mor",
+      "Saxnot",
+      "Tyr",
+      "Ullr",
+      "Vali"
     ];
 
     var users = [];
@@ -41,13 +41,11 @@ module.exports = {
         name: `${godNames[i]}`,
         username: `${godNames[i]}`,
         email: `${godNames[i]}@gmail.com`,
-        password: Math.random() * (9999-1000) + 1000
+        password: Math.random() * (9999 - 1000) + 1000,
+        profileId: i + 1
       });
     }
-    return queryInterface.bulkInsert('Users', users);
-
-
-
+    return queryInterface.bulkInsert("Users", users);
   },
 
   down: (queryInterface, Sequelize) => {

@@ -24,3 +24,11 @@ a {
 .form-group:first-child {
   margin-left: 20px;
 }
+
+.blurb {
+  float: left;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+}
